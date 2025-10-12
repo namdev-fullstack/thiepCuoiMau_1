@@ -1,0 +1,821 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Great+Vibes&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+input,
+select,
+textarea {
+  background-color: transparent;
+  outline: none;
+}
+button {
+  cursor: pointer;
+  background-color: transparent;
+  outline: none;
+  border: 0;
+}
+body {
+  min-height: 100vh;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1;
+font-family: "Montserrat", sans-serif;
+margin-bottom: 200px;
+}
+.wrapper {
+background: linear-gradient(to bottom, aliceblue, white);
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  max-width: 420px;
+  width: 100%;
+  min-height: 100vh;
+
+  border-radius: 10px;
+
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+.flash {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+.content-header {
+position: relative;
+    padding: 20px;
+    padding-bottom:36px;
+    width: 100%;
+    height: 100%;
+   background: 
+  linear-gradient(to bottom, rgb(230, 230, 230), white), 
+  url("../images/bg.png") no-repeat center center;
+background-size: cover;
+background-position: 50% 50%;
+background-blend-mode: overlay;
+}
+.content-header-invitation {
+  display: block;
+width: 418px;
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  
+}
+.content-header-invitation.bottom {
+    bottom: 42px;
+    top: auto;
+}
+.header {
+
+}
+.container-des {
+  font-size: 12px;
+  padding: 0 20px;
+  font-weight: 400;
+  text-align: center;
+  line-height: 16px;
+  color: #454545;
+  margin-bottom: 56px;
+
+}
+.header-image {
+
+-webkit-mask-box-image-source: url(https://d1mnfbuc51byy1.cloudfront.net/resources/cropShapes/062_2y48xbvq2r2.png);
+    -webkit-mask-box-image-slice: 0 fill;
+    mask-image: url(https://d1mnfbuc51byy1.cloudfront.net/resources/cropShapes/062_2y48xbvq2r2.png);
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+    position: relative;
+}
+.header-image-star {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    width: 10%;
+    height: 10%;
+}
+.header-image-wedding {
+    display: block;
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    width: 50%;
+    height: 10%;
+}
+.header-image-star2 {
+    display: block;
+    position: absolute;
+    top: 100px;
+    right: 25px;
+    transform: translate(-50%, 50%);
+    width: 5%;
+    height: 5%;
+}
+.header-image-star2.right {
+    top: 140px;
+    width: 3%;
+    height: 3%;
+}
+.header-image-star2.left {
+    top: 70px;
+    left: 75px;
+    width: 3%;
+    height: 3%;
+}
+
+/* ====================== body =========  */
+.content-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 26px 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    backdrop-filter: blur(6px);
+    overflow: hidden;
+}
+
+.content-body-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.content-body-name {
+    font-size: 32px;
+    font-family: "Great Vibes", cursive;
+    color: #333;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.line-svg {
+    width: 200px;
+    height: 15px;
+}
+
+/* --- fade elements (ẩn trước khi xuất hiện) --- */
+.fade-element {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* --- Hiệu ứng khi xuất hiện --- */
+.fade-element.visible[data-animate="fade-up"] {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-element.visible[data-animate="fade-down"] {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-element.visible[data-animate="left"] {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.fade-element[data-animate="left"] {
+    transform: translateX(-50px);
+}
+
+.fade-element[data-animate="right"] {
+    transform: translateX(50px);
+}
+
+.fade-element.visible[data-animate="right"] {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.fade-element[data-animate="zoom"] {
+    transform: scale(0.6);
+}
+
+.fade-element.visible[data-animate="zoom"] {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ================== time =================  */
+.wedding-time {
+    text-align: center;
+    color: #3a3a3a;
+   
+    
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(6px);
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    animation: fadeIn 2s ease-in-out forwards;
+    margin-top: 20px;
+}
+
+.wedding-time .day {
+    font-family: "Great Vibes", cursive;
+    font-size: 40px;
+    color: #d4a373;
+    animation: fadeSlideDown 2s ease forwards;
+}
+
+.wedding-time .time {
+    font-family: "Playfair Display", serif;
+    font-size: 36px;
+    letter-spacing: 2px;
+    margin-top: 10px;
+    color: #333;
+    animation: fadeSlideUp 2s ease forwards 0.2s;
+}
+
+.wedding-time .month,
+.wedding-time .year {
+    font-family: "Playfair Display", serif;
+    font-size: 18px;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 6px;
+    animation: fadeInSoft 2s ease forwards 0.4s;
+}
+
+/* Hiệu ứng mềm mại */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInSoft {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Cho hiệu ứng scroll mượt (kế thừa từ phần trước) */
+.fade-element {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.fade-element.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ================== invitation section =================  */
+.invitation-section-title {
+    text-align: center;
+    font-family: "Great Vibes", serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+    
+}
+.photo-gallery {
+    position: relative;
+    height: 200px;
+    margin: 0 20px;
+    margin-top: 28px;
+}
+
+/* ẢNH CHUNG */
+.photo {
+    position: absolute;
+    width: 111px;
+    border-radius: 6px;
+    object-fit: cover;
+    opacity: 0;
+    transform: scale(0.95);
+    transition:
+        opacity 0.8s ease-out,
+        transform 0.9s cubic-bezier(0.19, 1, 0.22, 1);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    will-change: transform, opacity;
+    /* giúp GPU tối ưu */
+}
+
+/* vị trí cố định */
+.photo.left {
+    left: 0;
+    transform: translateX(-80px) scale(0.95);
+}
+
+.photo.center {
+    left: 134px;
+    bottom: 10px;
+    transform: translateY(60px) scale(0.95);
+}
+
+.photo.right {
+    left: 268px;
+    transform: translateX(80px) scale(0.95);
+}
+
+/* Khi hiện ra */
+.fade-element.visible.photo.left {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    transition-delay: 0.1s;
+}
+
+.fade-element.visible.photo.center {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition-delay: 0.25s;
+}
+
+.fade-element.visible.photo.right {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    transition-delay: 0.4s;
+}
+
+
+/* ===================== heading =================  */
+.wedding-heading {
+    text-align: center;
+    font-family: "Playfair Display", serif;
+    font-size: 24px;
+    color: #333;
+    margin-top: 20px;
+}
+
+
+
+/* ===================== invitation =================  */
+.invite-card {
+    position: relative;
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 24px 16px;
+    background: #fff;
+    font-family: "Playfair Display", serif;
+    overflow: hidden;
+}
+
+/* Lá góc trên */
+.decor--leaf {
+    position: absolute;
+    top: 0;
+    left: -6px;
+        width: 125px;
+    opacity: 1;
+    transform: rotate(25deg);
+}
+
+/* Thẻ 囍 */
+.decor--ribbon {
+    position: absolute;
+        top: -119px;
+        right: 10px;
+        width: 60px;
+        border-radius: 3px;
+        overflow: hidden;
+}
+
+.decor--leaf {
+        width: 138px;
+    display: block;
+}
+.decor--leaf {
+    animation: pulse 2.5s ease-in-out infinite;
+    transform-origin: center;
+}
+
+/* @keyframes pulse {
+
+    0%,
+    100% {
+        transform: rotate(25deg) scale(1);
+    }
+
+    50% {
+        transform: rotate(25deg) scale(1.05);
+    }
+} */
+/* Header mời */
+.invite-header {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.invite-header__text {
+    font-size: 14px;
+    color: #333;
+}
+
+.invite-header__name {
+    color: #292929;
+    font-size: 22px;
+    font-weight: 600;
+    font-style: italic;
+    border-bottom: 1px dotted #999;
+    display: inline-block;
+    padding-bottom: 3px;
+    margin-top: 4px;
+    padding-left: 36px;
+    padding-right: 36px;   
+}
+
+/* Thân thiệp */
+.invite-body {
+    /* display: flex; */
+    margin-top: 20px;
+}
+.invite-body-line {
+    height: 60px;
+    border-left: 2px solid #cda57d;
+    margin-left: 6px;
+}
+.invite-body__title {
+    /* writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    border-left: 1px solid #222;
+    padding-left: 6px; */
+    font-size: 18px;
+        letter-spacing: 3px;
+        line-height: 20px;
+        color: #cda57d;
+        font-weight: 600;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 600;
+            /* font-style: italic; */
+}
+
+.invite-body__content {
+    flex: 1;
+   
+    position: relative;
+}
+
+/* Thông tin nhà trai - nhà gái */
+.family {
+    padding-top: 18px;
+        border-left: 2px solid #cda57d;
+        margin-left: 6px;
+        padding-left: 6px;
+}
+.family--groom {
+    padding-bottom: 12px;
+}
+.family h4 {
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+            font-style: italic;
+}
+
+.family p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+.family strong {
+    font-weight: 700;
+}
+.family span {
+    font-size: 12px;
+    line-height: 1.4;
+   
+    font-weight: 400;
+}
+
+
+
+
+/* ======================= calendar =================  */
+.calendar-label {
+   margin-top: 36px;
+    padding-left: 23px;
+}
+.calendar-label-text {
+    color: #484848;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: "Montserrat", sans-serif;
+    border-left: 2px solid #cda57d;
+    padding-top: 12px;
+    padding-bottom: 12px;
+            padding-left: 6px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+}
+.calendar-label-text img {
+    width: 34px;
+}
+.calendar-label-text-time {
+    padding-left: 46px;
+        margin-bottom: 14px;
+}
+.calendar {
+    margin: 0 auto;
+    width: 280px;
+    background: #fff;
+    border: 2px solid #f7a9b8;
+    border-radius: 12px;
+    padding: 16px;
+    color: #333;
+    box-shadow: 0 4px 12px rgba(255, 192, 203, 0.2);
+    position: relative;
+}
+
+.calendar::before,
+.calendar::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 50px;
+    background: #f7a9b8;
+    border-radius: 8px;
+    left: -6px;
+}
+
+.calendar::after {
+    top: auto;
+    bottom: 16px;
+}
+
+.calendar::before {
+    top: 16px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #f28ba5;
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.days-of-week {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background: #f7a9b8;
+    color: #000;
+    font-size: 12px;
+    text-align: center;
+    padding: 4px 0;
+    border-radius: 12px;
+    margin-bottom: 8px;
+}
+
+.dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.dates span {
+    display: inline-block;
+    padding: 6px 0;
+    border-radius: 50%;
+    color: #444;
+}
+
+.dates .highlight {
+    position: relative;
+    color: white;
+    font-weight: bold;
+}
+
+.dates .highlight::before {
+    content: "❤️";
+    position: absolute;
+    font-size: 24px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -52%);
+    z-index: -1;
+    opacity: 0.9;
+}
+
+
+.map-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #f28ba5;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 24px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.map-button:hover {
+    background: #ec5d80;
+    transform: scale(1.05);
+}
+.map-button {
+display: flex;
+    align-items: center;
+    width: fit-content;
+    margin: 0 auto;
+}
+.map-button img {
+    width: 22px;
+    height: 22px;
+       
+}
+
+.map-preview {
+    margin-top: 14px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #f7c1cf;
+    box-shadow: 0 2px 6px rgba(255, 192, 203, 0.3);
+    margin: 12px;
+}
+
+
+
+/* ==================== album ====================  */
+ .album-section {
+     max-width: 420px;
+     margin: 60px auto;
+     padding: 0 6px;
+     text-align: center;
+ }
+.text-love {
+    height: 38px;
+}
+ .album-title {
+       
+          
+            font-family: "Great Vibes", serif;
+            font-size: 35px;
+            font-weight: 600;
+            color: #333;
+            
+            text-align: left;
+ }
+
+ /* MASONRY layout */
+ .album-grid {
+     columns: 2;
+     column-gap: 10px;
+ }
+
+ .album-item {
+     position: relative;
+     margin-bottom: 10px;
+     border-radius: 14px;
+     overflow: hidden;
+     display: inline-block;
+     width: 100%;
+     break-inside: avoid;
+     transition: transform 0.4s ease;
+ }
+
+ .album-item img {
+     width: 100%;
+     height: 100%;
+     display: block;
+     border-radius: 14px;
+     object-fit: cover;
+     /* 🔥 Giữ ảnh đẹp, không vỡ */
+     transition: transform 0.8s ease, opacity 0.8s ease;
+ }
+
+ .album-item:hover img {
+     transform: scale(1.05);
+ }
+
+ /* Chiều cao đa dạng, không vỡ ảnh */
+ .album-item--tall {
+     height: 300px;
+ }
+.album-item--wide1 {
+    height: 300px;
+}
+ .album-item--wide {
+     height: 250px;
+ }
+
+ .album-item--square {
+     height: 220px;
+ }
+
+ /* Hiệu ứng vào */
+ .slide-in {
+     opacity: 0;
+     transform: translateY(40px);
+     transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+ }
+
+ .slide-visible {
+     opacity: 1;
+     transform: translateY(0);
+ }
+
+ /* Các hướng */
+ .slide-left {
+     transform: translateX(-50px);
+ }
+
+ .slide-right {
+     transform: translateX(50px);
+ }
+
+ .slide-up {
+     transform: translateY(60px);
+ }
+
+ .slide-visible.slide-left,
+ .slide-visible.slide-right,
+ .slide-visible.slide-up {
+     transform: translateX(0) translateY(0);
+     opacity: 1;
+ }
+
+ .footer-album {
+    margin-top: 10px;
+ }
+ .footer-album img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+ }
+ 
