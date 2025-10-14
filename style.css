@@ -50,10 +50,10 @@ background: linear-gradient(to bottom, aliceblue, white);
   align-items: center;
 }
 .container {
-  max-width: 420px;
+width: 100%;
 
-  min-height: 100vh;
-
+max-width: 436px;
+    overflow-x: hidden;
   border-radius: 10px;
 
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
@@ -433,7 +433,7 @@ margin-bottom: 58px;
 /* ===================== invitation =================  */
 .invite-card {
     position: relative;
-    max-width: 100%;
+   
     margin: 0 auto;
     padding: 24px 16px;
     background: #fff;
@@ -727,7 +727,7 @@ display: flex;
 
 /* ==================== album ====================  */
  .album-section {
-     max-width: 100%;
+     
      margin: 60px auto;
      padding: 0 6px;
      text-align: center;
@@ -748,7 +748,9 @@ display: flex;
 
  /* MASONRY layout */
  .album-grid {
-     columns: 2;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    
      column-gap: 10px;
  }
 
@@ -835,9 +837,9 @@ display: flex;
  }
  
 
-  @media (min-width: 415px) and (max-width: 480px) {
-      .container {
+@media (max-width: 436px) {
+    .container {
         max-width: 100%;
-        width: 100%;
-      }
-  }
+        /* Full màn hình điện thoại */
+    }
+}
