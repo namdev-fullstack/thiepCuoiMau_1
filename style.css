@@ -51,7 +51,7 @@ background: linear-gradient(to bottom, aliceblue, white);
 }
 .container {
   max-width: 420px;
-  width: 100%;
+
   min-height: 100vh;
 
   border-radius: 10px;
@@ -433,7 +433,7 @@ margin-bottom: 58px;
 /* ===================== invitation =================  */
 .invite-card {
     position: relative;
-    max-width: 420px;
+    max-width: 100%;
     margin: 0 auto;
     padding: 24px 16px;
     background: #fff;
@@ -727,7 +727,7 @@ display: flex;
 
 /* ==================== album ====================  */
  .album-section {
-     max-width: 420px;
+     max-width: 100%;
      margin: 60px auto;
      padding: 0 6px;
      text-align: center;
@@ -833,8 +833,11 @@ display: flex;
     object-fit: cover;
     border-radius: 10px;
  }
-  @media (max-width: 480px) {
-      .wrapper {
-          width: 100%;
+ 
+
+  @media (min-width: 415px) and (max-width: 480px) {
+      .container {
+        max-width: 100%;
+        width: 100%;
       }
   }
