@@ -40,6 +40,8 @@ body {
   line-height: 1;
 font-family: "Montserrat", sans-serif;
 margin-bottom: 200px;
+/* scroll-behavior: smooth; */
+    /* -webkit-overflow-scrolling: touch; */
 
 }
 .wrapper {
@@ -49,13 +51,12 @@ background: linear-gradient(to bottom, aliceblue, white);
   display: flex;
   justify-content: center;
   align-items: center;
-    -webkit-overflow-scrolling: touch;
+
 }
 .container {
 width: 100%;
 
 max-width: 436px;
-    overflow-x: hidden;
   border-radius: 10px;
 
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
@@ -842,6 +843,8 @@ display: flex;
 @media (max-width: 436px) {
     .container {
         max-width: 100%;
+    overflow-x: hidden;
         /* Full màn hình điện thoại */
+        scroll-behavior: smooth;
     }
 }
