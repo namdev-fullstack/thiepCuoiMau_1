@@ -40,6 +40,7 @@ body {
   line-height: 1;
 font-family: "Montserrat", sans-serif;
 margin-bottom: 200px;
+
 }
 .wrapper {
 background: linear-gradient(to bottom, aliceblue, white);
@@ -48,6 +49,7 @@ background: linear-gradient(to bottom, aliceblue, white);
   display: flex;
   justify-content: center;
   align-items: center;
+    -webkit-overflow-scrolling: touch;
 }
 .container {
 width: 100%;
