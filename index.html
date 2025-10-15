@@ -467,6 +467,54 @@
             <img src="./images/anh4Ngang.jpeg" alt="Ảnh cưới 6" />
           </div>
         </section>
+
+        <div class="transfer-card">
+          <!-- <img src="images/baoLiXi.png" class="transfer-card-pos1" alt="" /> -->
+          <!-- QR CODE -->
+          <p class="transfer-card-title">Mừng Cưới</p>
+          <div class="transfer-card__qr">
+            <img id="qr-image" src="./images/qr.jpg" alt="Mã QR chuyển khoản" />
+          </div>
+
+          <!-- THÔNG TIN CHUYỂN KHOẢN -->
+          <div class="transfer-info">
+            <div class="transfer-row">
+              <span class="transfer-row__label">Tên tài khoản:</span>
+              <span class="transfer-row__value" id="acc-name"
+                >NGUYỄN VĂN NAM</span
+              >
+            </div>
+
+            <div class="transfer-row">
+              <span class="transfer-row__label">Ngân hàng:</span>
+              <span class="transfer-row__value" id="bank-name"
+                >MB Bank - CN Hà Nội</span
+              >
+            </div>
+
+            <div class="transfer-row">
+              <span class="transfer-row__label">Số tài khoản:</span>
+              <div style="display: flex; align-items: center; gap: 6px">
+                <span class="transfer-row__value" id="acc-number"
+                  >0123456789</span
+                >
+                <button class="copy-btn" data-copy="acc-number">
+                  <img src="images/copy_icon.gif" alt="" />
+                </button>
+              </div>
+            </div>
+
+            <div class="copy-feedback" id="copy-feedback">
+              Đã sao chép số tài khoản
+            </div>
+          </div>
+        </div>
+
+        <!-- -------------- Footer -----------  -->
+        <div class="footer">
+          <img src="./images/Car.gif" alt="" />
+          <h2>Thanks</h2>
+        </div>
       </div>
     </div>
 
@@ -542,7 +590,30 @@
         .querySelectorAll(".slide-in")
         .forEach((el) => weddingObserver.observe(el));
     </script>
+    <script>
+      // ======= QR CODE GENERATION =======
 
+      const name = document.getElementById("acc-name").innerText.trim();
+      const bank = document.getElementById("bank-name").innerText.trim();
+      const acc = document.getElementById("acc-number").innerText.trim();
+      const qrData = `Tên: ${name}\nNgân hàng: ${bank}\nSố TK: ${acc}`;
+      const encoded = encodeURIComponent(qrData);
+
+      // ======= COPY FUNCTION =======
+      const copyBtn = document.querySelector(".copy-btn");
+      const copyFeedback = document.getElementById("copy-feedback");
+      copyBtn.addEventListener("click", async () => {
+        const targetId = copyBtn.dataset.copy;
+        const text = document.getElementById(targetId).innerText;
+        try {
+          await navigator.clipboard.writeText(text);
+          copyFeedback.classList.add("show");
+          setTimeout(() => copyFeedback.classList.remove("show"), 1500);
+        } catch (err) {
+          alert("Không thể sao chép: " + err);
+        }
+      });
+    </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       AOS.init();

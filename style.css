@@ -39,7 +39,7 @@ body {
   font-size: 16px;
   line-height: 1;
 font-family: "Montserrat", sans-serif;
-margin-bottom: 200px;
+/* margin-bottom: 200px; */
 /* scroll-behavior: smooth; */
     /* -webkit-overflow-scrolling: touch; */
 
@@ -453,7 +453,9 @@ margin-bottom: 58px;
     opacity: 1;
     transform: rotate(25deg);
 }
-
+.invite-card-pos-leaves-left {
+    
+}
 /* Thẻ 囍 */
 .decor--ribbon {
     position: absolute;
@@ -847,4 +849,132 @@ display: flex;
         /* Full màn hình điện thoại */
         scroll-behavior: smooth;
     }
+}
+
+
+/* ===== CONTAINER CHÍNH ===== */
+.transfer-card {
+    max-width: 420px;
+    width: 100%;
+    background: #fff;
+    border-radius: 12px;
+    /* box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05); */
+    padding: 20px;
+    position: relative;
+    background-image: url(
+        './images/bg-qrcode2.png'
+    );
+        background-repeat: no-repeat;
+    background-position: right 10px top -43px;
+        background-size: contain;
+        
+}
+.transfer-card-title {
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
+    font-family: "Great Vibes", serif;
+    color: #ca0000;
+}
+
+/* ===== QR IMAGE ===== */
+.transfer-card__qr {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+       
+            /* hoặc cover */
+}
+
+.transfer-card__qr img {
+    width: 160px;
+    height: 160px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    background: #fafafa;
+    object-fit: cover;
+}
+
+/* ===== THÔNG TIN NGÂN HÀNG ===== */
+.transfer-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.transfer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f9fafb;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 10px 14px;
+}
+
+.transfer-row__label {
+    color: #6b7280;
+    font-size: 14px;
+    min-width: 100px;
+}
+
+.transfer-row__value {
+    flex: 1;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: right;
+    word-break: break-all;
+}
+
+/* ===== NÚT COPY ===== */
+.copy-btn {
+    margin-left: 8px;
+    background: #f1f5f9;
+    border: none;
+    border-radius: 8px;
+    padding: 4px 6px;
+    font-size: 13px;
+    cursor: pointer;
+    color: #111;
+    transition: background 0.2s;
+}
+
+.copy-btn:hover {
+    background: #e2e8f0;
+}
+.copy-btn img {
+    height: 36px;
+}
+.copy-feedback {
+    text-align: right;
+    color: #16a34a;
+    font-size: 13px;
+    opacity: 0;
+    transition: opacity 0.25s;
+    margin-top: 4px;
+}
+
+.copy-feedback.show {
+    opacity: 1;
+}
+
+
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding-bottom: 10px;
+}
+.footer img {
+height: 70px;
+}
+.footer h2 {
+    font-size: 44px;
+        font-weight: 700;
+        text-align: center;
+        font-family: "Great Vibes", serif;
+        color: #644657;
 }
