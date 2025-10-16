@@ -224,7 +224,7 @@
               data-aos-duration="1000"
               data-aos-easing="ease-in-sine"
             >
-              Anh Nam Đẹp Choai
+              0966.216.495
             </h2>
           </div>
 
@@ -561,6 +561,7 @@
         <audio
           id="bgMusic"
           src="https://cdn-mp3.cinelove.me/mp3/aa11c468-d872-4815-ae41-806632db97d3.mp3"
+          autoplay
           loop
           preload="auto"
         ></audio>
@@ -697,8 +698,9 @@
         const audio = document.getElementById("bgMusic");
         const toggle = document.getElementById("audioToggle");
 
-        // Auto play khi load web (nếu user cho phép)
-        const playAudio = () => {
+        // Thử autoplay ngay khi load
+        audio.volume = 1.0;
+        const tryPlay = () => {
           audio
             .play()
             .then(() => {
@@ -706,15 +708,22 @@
               toggle.classList.remove("paused");
             })
             .catch(() => {
-              // Trình duyệt chặn autoplay => chờ click lần đầu
-              console.log("Autoplay bị chặn — chờ người dùng bấm.");
+              // Nếu bị chặn autoplay, chờ lần click đầu tiên
+              const resume = () => {
+                audio.play();
+                toggle.classList.add("playing");
+                toggle.classList.remove("paused");
+                document.removeEventListener("click", resume);
+              };
+              document.addEventListener("click", resume);
             });
         };
 
-        playAudio();
+        tryPlay();
 
-        // Khi click toggle
-        toggle.addEventListener("click", () => {
+        // Khi click nút toggle
+        toggle.addEventListener("click", (e) => {
+          e.stopPropagation(); // tránh xung đột click ngoài
           if (audio.paused) {
             audio.play();
             toggle.classList.add("playing");
